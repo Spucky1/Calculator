@@ -4,14 +4,13 @@ from tkinter import ttk
 window = tk.Tk()
 window.geometry("1920x1080")
 def printInput(): 
-    inp = textbox.get(1.0, "end-1c") 
-    lbl.config(text = "Provided Input: "+inp) 
+    textbox_text= textbox.get()
+    lbl.config(text = textbox_text) 
 
-textbox =ttk.Entry(command= printInput)
-button = tk.Button(text=("hello"), command= printInput)
-
+textbox =ttk.Entry()
+button = tk.Button(window,text="print",command= printInput)
 textbox.pack()
 lbl =tk.Label(window, text="")
-lbl.pack()
+lbl.pack(pady=10)
 button.pack()
 window.mainloop()
