@@ -1,17 +1,17 @@
-from tkinter import*
+import tkinter as tk
 from tkinter import ttk
 
-window = Tk()
+window = tk.Tk()
 window.geometry("1920x1080")
 def printInput(): 
     inp = textbox.get(1.0, "end-1c") 
     lbl.config(text = "Provided Input: "+inp) 
 
-textbox =ttk.Entry()
-button = Button(text=("hello"))
+textbox =ttk.Entry(command= printInput)
+button = tk.Button(text=("hello"), command= printInput)
 
 textbox.pack()
-lbl =Label(Frame, Text="")
+lbl =tk.Label(window, text="")
 lbl.pack()
 button.pack()
 window.mainloop()
