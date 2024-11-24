@@ -6,8 +6,11 @@ window.geometry("1920x1080")
 Operators = ["+","-","/","*"]
 def printInput(): 
     textbox_text= textbox.get()
+    
     if textbox_text.isdigit():
         print("there is a int")
+
+
     else:
         print("no int")
    
