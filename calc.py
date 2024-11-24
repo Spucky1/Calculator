@@ -3,8 +3,14 @@ from tkinter import ttk
 
 window = tk.Tk()
 window.geometry("1920x1080")
+Operators = ["+","-","/","*"]
 def printInput(): 
     textbox_text= textbox.get()
+    if textbox_text.isdigit():
+        print("there is a int")
+    else:
+        print("no int")
+   
     lbl.config(text = textbox_text) 
 
 textbox =ttk.Entry()
