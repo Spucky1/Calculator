@@ -1,18 +1,17 @@
 import tkinter as tk
 from tkinter import ttk
 
+
 window = tk.Tk()
 window.geometry("1920x1080")
 Operators = ["+","-","/","*"]
 def printInput(): 
     textbox_text= textbox.get()
+    tolkeins = textbox_text.split(" ")
+    for i in tolkeins:
+        print(i.isdigit())
+    print(tolkeins)
     
-    if textbox_text.isdigit():
-        print("there is a int")
-
-
-    else:
-        print("no int")
    
     lbl.config(text = textbox_text) 
 
