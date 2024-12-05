@@ -6,14 +6,19 @@ from tkinter import ttk
 
 window = tk.Tk()
 window.geometry("1920x1080")
-OPPS = "+-*/"
+OPP = ["+","-","*","/"]
 def printInput(): 
     textbox_text= textbox.get()
     for i in textbox_text:
         rpn = []
         print(i.isdigit())
-        if i.isdigit() == True:
-            rpn.append(i)
+        for k in textbox_text:
+            if k.isdigit() == True:
+                rpn.append(k)
+           
+        for OPPS in textbox_text:
+            if  OPP in OPPS:
+             rpn.append(OPPS)
             
         
             
