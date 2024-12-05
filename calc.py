@@ -6,30 +6,30 @@ from tkinter import ttk
 
 window = tk.Tk()
 window.geometry("1920x1080")
-OPP = ["+","-","*","/"]
-def printInput(): 
+
+def shuntingyard(): 
     textbox_text= textbox.get()
+    rpn=[]
+    output = []
     for i in textbox_text:
-        rpn = []
         print(i.isdigit())
-        for k in textbox_text:
-            if k.isdigit() == True:
-                rpn.append(k)
-           
-        for OPPS in textbox_text:
-            if  OPP in OPPS:
-             rpn.append(OPPS)
-            
-        
-            
+        if i.isdigit() == True:
+                rpn.append(i)
+        elif i == "+" or i == "-" or i == "*" or i == "/":
+                output.append(i)
 
+    rpn += output
     print(rpn)
-
+  
     print(textbox_text)
+    return(rpn, output)
+#No entiend que es postfix pero el nombre es chevre
+def postfix(rpn, ouput):
+      
+      
    
-
 textbox =ttk.Entry()
-button = tk.Button(window,text="print",command= printInput)
+button = tk.Button(window,text="print",command= shuntingyard)
 textbox.pack()
 lbl =tk.Label(window, text="")
 lbl.pack(pady=10)
