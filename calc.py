@@ -6,24 +6,41 @@ from tkinter import ttk
 
 window = tk.Tk()
 window.geometry("1920x1080")
-OPP = ["+","-","*","/"]
+
+
 def printInput(): 
     textbox_text= textbox.get()
     for i in textbox_text:
-        rpn = []
+        queue = []
+        stack = []
         print(i.isdigit())
-        for k in textbox_text:
-            if k.isdigit() == True:
-                rpn.append(k)
+        if i.isdigit() == True:
+            i.append(queue)
+        elif i == "(" or i == "*" or i =="/" or i =="+" or i ==  "-" or i ==")":
+             i.append(stack)
+    for I in stack: 
+        if I == "*" & I == "+" or I == "-" or I == "/" or I == "(":
+                I.append(queue)
+        elif I == "/" & I != "*" or I ==  "+" or I == "-" or I == "(":
+                I.append(queue)
+        elif I == "+" & I != "*" or I != "/" or I == "-" or I  == "(":
+                I.append(queue)
+        elif I == "-" & I != "*" or I != "/" or I !="+" or I =="(":
+            if I == "-":
+                I.append(queue)
+        
+
+
+                    
+
+
            
-        for OPPS in textbox_text:
-            if  OPP in OPPS:
-             rpn.append(OPPS)
+        
             
         
             
 
-    print(rpn)
+    print(queue)
 
     print(textbox_text)
    
