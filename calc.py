@@ -1,7 +1,6 @@
 import tkinter as tk
 from tkinter import ttk
-
-
+#if i = "+" and stack(-1) = "power" or stack(-1) = "*" or stack(-1) = 
 
 
 window = tk.Tk()
@@ -15,16 +14,48 @@ def shuntingyard():
         print(i.isdigit())
         if i.isdigit() == True:
                 rpn.append(i)
-        elif i == "+" or i == "-" or i == "*" or i == "/":
-                output.append(i)
+        elif i ==  "*":
+                if output:    
+                
+                    if output[-1] == "^":
+                        rpn.append(output.pop())
+                        output.append(i)
+                    else:
+                         output.append(i)
+        elif i == "/":
+            if output:
+                if output[-1] == "*" or output[-1] == "^":
+                    rpn.append(output.pop())
+                    output.append(i)
+                else:
+                    output.append(i)
+        elif i == "+":
+            if output:
+                if output[-1] == "*" or output[-1] == "/" or output[-1] == "^":
+                    rpn.append(output.pop())
+                    output.append(i)
+                else:
+                    output.append(i)
+        elif i =="-":
+            if output:
+                if output[-1] == "*" or output[-1] == "/" or output[-1] == "+" or output[-1] =="^":
+                    rpn.append(output.pop())
+                    output.append(i)
+                else:
+                     output.append(i)
+                
+              
+                
+                
 
+    print(output)
     rpn += output
     print(rpn)
   
     print(textbox_text)
     return(rpn, output)
 #No entiend que es postfix pero el nombre es chevre
-def postfix(rpn, ouput):
+
       
       
    
