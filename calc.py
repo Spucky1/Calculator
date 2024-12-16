@@ -10,34 +10,38 @@ def shuntingyard():
     textbox_text= textbox.get()
     rpn=[]
     output = []
+    if output == []:
+         print("w")
+    
     for i in textbox_text:
         print(i.isdigit())
         if i.isdigit() == True:
                 rpn.append(i)
         elif i ==  "*":
-                if output:    
-                
+                if output == []:    
+                    print("worki")
                     if output[-1] == "^":
                         rpn.append(output.pop())
                         output.append(i)
+                        print("works")
                     else:
                          output.append(i)
         elif i == "/":
-            if output:
+            if output == []:
                 if output[-1] == "*" or output[-1] == "^":
                     rpn.append(output.pop())
                     output.append(i)
                 else:
                     output.append(i)
         elif i == "+":
-            if output:
+            if output == []:
                 if output[-1] == "*" or output[-1] == "/" or output[-1] == "^":
                     rpn.append(output.pop())
                     output.append(i)
                 else:
                     output.append(i)
         elif i =="-":
-            if output:
+            if output == []:
                 if output[-1] == "*" or output[-1] == "/" or output[-1] == "+" or output[-1] =="^":
                     rpn.append(output.pop())
                     output.append(i)
