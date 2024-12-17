@@ -1,6 +1,6 @@
 import tkinter as tk
 from tkinter import ttk
-#if i = "+" and stack(-1) = "power" or stack(-1) = "*" or stack(-1) = 
+# outline is if i = "+" and stack(-1) = "power" or stack(-1) = "*" or stack(-1) = 
 
 
 window = tk.Tk()
@@ -8,57 +8,57 @@ window.geometry("1920x1080")
 
 def shuntingyard(): 
     textbox_text= textbox.get()
-    rpn=[]
-    output = []
-    if output == []:
+    queue=[]
+    stack = []
+    if stack == []:
          print("w")
-    
+    #Problem is that output[-1] does not exist
     for i in textbox_text:
         print(i.isdigit())
         if i.isdigit() == True:
-                rpn.append(i)
+                queue.append(i)
         elif i ==  "*":
-                if output == []:    
+                if stack == []:    
                     print("worki")
-                    if output[-1] == "^":
-                        rpn.append(output.pop())
-                        output.append(i)
+                    if stack[-1] == "^":
+                        queue.append(stack.pop())
+                        stack.append(i)
                         print("works")
                     else:
-                         output.append(i)
+                         stack.append(i)
         elif i == "/":
-            if output == []:
-                if output[-1] == "*" or output[-1] == "^":
-                    rpn.append(output.pop())
-                    output.append(i)
+            if stack == []:
+                if stack[-1] == "*" or stack[-1] == "^":
+                    queue.append(stack.pop())
+                    stack.append(i)
                 else:
-                    output.append(i)
+                    stack.append(i)
         elif i == "+":
-            if output == []:
-                if output[-1] == "*" or output[-1] == "/" or output[-1] == "^":
-                    rpn.append(output.pop())
-                    output.append(i)
+            if stack == []:
+                if stack[-1] == "*" or stack[-1] == "/" or stack[-1] == "^":
+                    queue.append(stack.pop())
+                    stack.append(i)
                 else:
-                    output.append(i)
+                    stack.append(i)
         elif i =="-":
-            if output == []:
-                if output[-1] == "*" or output[-1] == "/" or output[-1] == "+" or output[-1] =="^":
-                    rpn.append(output.pop())
-                    output.append(i)
+            if stack == []:
+                if stack[-1] == "*" or stack[-1] == "/" or stack[-1] == "+" or stack[-1] =="^":
+                    queue.append(stack.pop())
+                    stack.append(i)
                 else:
-                     output.append(i)
+                     stack.append(i)
                 
               
                 
                 
 
-    print(output)
-    rpn += output
-    print(rpn)
+    print(stack)
+    queue += stack
+    print(queue)
   
     print(textbox_text)
-    return(rpn, output)
-#No entiend que es postfix pero el nombre es chevre
+    return(queue, stack)
+#Postfix eval no lo e hecho
 
       
       
