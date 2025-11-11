@@ -11,38 +11,39 @@ def shuntingyard():
     queue=[]
     stack = []
     if stack == []:
-         print("w")
+         print("working")
     #Problem is that output[-1] does not exist
     for i in textbox_text:
         print(i.isdigit())
+        print(stack)
         if i.isdigit() == True:
                 queue.append(i)
         elif i ==  "*":
                 if stack == []:    
-                    print("worki")
-                    if stack[-1] == "^":
+                    print("working")
+                    if stack[1] == "^":
                         queue.append(stack.pop())
                         stack.append(i)
                         print("works")
                     else:
                          stack.append(i)
-        elif i == "/":
+        elif 1 == "/":
             if stack == []:
-                if stack[-1] == "*" or stack[-1] == "^":
+                if stack[1] == "*" or stack[1] == "^":
                     queue.append(stack.pop())
                     stack.append(i)
                 else:
                     stack.append(i)
         elif i == "+":
             if stack == []:
-                if stack[-1] == "*" or stack[-1] == "/" or stack[-1] == "^":
+                if stack[1] == "*" or stack[1] == "/" or stack[1] == "^":
                     queue.append(stack.pop())
                     stack.append(i)
                 else:
                     stack.append(i)
         elif i =="-":
             if stack == []:
-                if stack[-1] == "*" or stack[-1] == "/" or stack[-1] == "+" or stack[-1] =="^":
+                if stack[1] == "*" or stack[1] == "/" or stack[1] == "+" or stack[1] =="^":
                     queue.append(stack.pop())
                     stack.append(i)
                 else:
@@ -58,7 +59,7 @@ def shuntingyard():
   
     print(textbox_text)
     return(queue, stack)
-#Postfix eval no lo e hecho
+#Postfix eval no esta echo
 
       
       
