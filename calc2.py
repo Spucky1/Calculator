@@ -10,8 +10,17 @@ def inFixToPostFix():
     stack = []
     #This is a Lifo data stucture
     inFixExpression = textbox_text.split()
-    if inFixExpression[0] x
-        
+    for i in inFixExpression:
+        if i.isdigit() == True:
+            queue.append(i)  
+        elif i == "^":
+             stack.append(i)
+        elif i == "*":
+            if stack[0] == "^":
+                queue.append(stack.pop())
+        elif i == "/":
+            if stack
+    print(queue)       
 #  postfix evalutation to work with values and stack givn from shutting
 
 
